@@ -1,0 +1,99 @@
+[gd_scene load_steps=8 format=3 uid="uid://cd0jbh4metflb"]
+
+[ext_resource type="Script" path="res://scenes/LoadingScreen/LoadingScreen.gd" id="1_gbk34"]
+[ext_resource type="Texture2D" uid="uid://ig0gka2usi3m" path="res://Blazia_bkgd.png" id="2_7uths"]
+[ext_resource type="Texture2D" uid="uid://b715pj3e3kg5s" path="res://Blazia_bkgd_with_palette.png" id="3_sdunk"]
+[ext_resource type="Texture2D" uid="uid://xppxjcn04gks" path="res://Blazia_design_philosophy.png" id="4_wj30x"]
+
+[sub_resource type="Animation" id="Animation_xbk22"]
+resource_name = "Flash"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/ContinueLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 0.052556),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.431373, 0.431373, 0.431373, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2tmr4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/ContinueLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pf4xo"]
+_data = {
+"Flash": SubResource("Animation_xbk22"),
+"RESET": SubResource("Animation_2tmr4")
+}
+
+[node name="LoadingScreen" type="MarginContainer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -86.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+script = ExtResource("1_gbk34")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Loading..."
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+
+[node name="ContinueLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_pf4xo")
+}
+
+[node name="BlaziaBkgd" type="Sprite2D" parent="."]
+position = Vector2(225, -322)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_7uths")
+
+[node name="BlaziaBkgdWithPalette" type="Sprite2D" parent="."]
+position = Vector2(635, -322)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_sdunk")
+
+[node name="BlaziaDesignPhilosophy" type="Sprite2D" parent="."]
+position = Vector2(1049, -322)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_wj30x")

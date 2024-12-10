@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://0l0llys4n7jv"]
+
+[ext_resource type="Script" path="res://scenes/Game/Game.gd" id="1_n5rs0"]
+[ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://scenes/PauseMenu/PauseMenu.tscn" id="2_tjgjv"]
+[ext_resource type="PackedScene" uid="uid://cp3p3kqcjh0me" path="res://scenes/EndMenu/EndMenu.tscn" id="3_xman4"]
+[ext_resource type="Texture2D" uid="uid://beg4vmqhsx6ak" path="res://icon.svg" id="4_ukbja"]
+[ext_resource type="Script" path="res://scenes/Game/Sprite2D.gd" id="5_30h0a"]
+[ext_resource type="Texture2D" uid="uid://ig0gka2usi3m" path="res://Blazia_bkgd.png" id="6_t7ikw"]
+
+[node name="BlaziaIntro" type="Node"]
+script = ExtResource("1_n5rs0")
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="GUI" instance=ExtResource("2_tjgjv")]
+unique_name_in_owner = true
+visible = false
+
+[node name="EndMenu" parent="GUI" instance=ExtResource("3_xman4")]
+unique_name_in_owner = true
+visible = false
+
+[node name="RemoveMe" type="VBoxContainer" parent="."]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 115.0
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="RemoveMe"]
+layout_mode = 2
+text = "Blazium is fork of godot
+<More History Here>"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RemoveMe"]
+layout_mode = 2
+alignment = 1
+
+[node name="Main Menu" type="Button" parent="RemoveMe/HBoxContainer"]
+layout_mode = 2
+text = "Main Menu
+"
+
+[node name="PauseChecker" type="Sprite2D" parent="."]
+position = Vector2(1210, 71)
+texture = ExtResource("4_ukbja")
+script = ExtResource("5_30h0a")
+
+[node name="PauseChecker2" type="Sprite2D" parent="."]
+position = Vector2(72, 75)
+texture = ExtResource("4_ukbja")
+script = ExtResource("5_30h0a")
+
+[node name="PauseChecker3" type="Sprite2D" parent="."]
+position = Vector2(73, 644)
+texture = ExtResource("4_ukbja")
+script = ExtResource("5_30h0a")
+
+[node name="PauseChecker4" type="Sprite2D" parent="."]
+position = Vector2(1202, 645)
+texture = ExtResource("4_ukbja")
+script = ExtResource("5_30h0a")
+
+[node name="BlaziaBkgd" type="Sprite2D" parent="."]
+position = Vector2(649, 240)
+scale = Vector2(0.0949695, 0.0949695)
+texture = ExtResource("6_t7ikw")
+
+[connection signal="ask_to_save" from="GUI/PauseMenu" to="." method="_on_pause_menu_ask_to_save"]
+[connection signal="pressed" from="RemoveMe/HBoxContainer/Main Menu" to="." method="_on_mainMenu"]
