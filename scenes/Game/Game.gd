@@ -16,6 +16,7 @@ func _ready() -> void:
 	pause_checker_sprite.rotation = \
 		SaveHelper.last_loaded_data.get("pause_checker_sprite_rot", 0)
 
+
 func _process(_delta):
 	if pause_menu.visible == false and Input.is_action_just_pressed("ui_cancel"):
 		pause_menu.show()
@@ -37,7 +38,6 @@ func _on_pause_menu_ask_to_save() -> void:
 		"pause_checker_sprite_rot":pause_checker_sprite.rotation
 	})
 
-
 func _on_blazia_who_pressed():
 	SceneLoader.change_scene("res://scenes/BlaziaIntro/BlaziaIntro.tscn")
 
@@ -49,3 +49,7 @@ func _on_faq_pressed():
 
 func _on_history_pressed():
 	SceneLoader.change_scene("res://scenes/Game/game.tscn")
+
+func _on_dynamic_button_pressed():
+	SceneLoader.change_scene("res://scenes/BlaziaDynamic/BlaziaDynamic.tscn")
+	
