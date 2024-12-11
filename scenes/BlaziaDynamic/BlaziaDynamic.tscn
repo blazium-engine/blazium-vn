@@ -1,16 +1,40 @@
 [gd_scene load_steps=7 format=3 uid="uid://2honcp2ho3g7"]
 
-[ext_resource type="Script" path="res://scenes/Game/Game.gd" id="1_5b822"]
+[ext_resource type="Script" path="res://scenes/BlaziaDynamic/BlaziaDynamic.gd" id="1_ugh7k"]
 [ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://scenes/PauseMenu/PauseMenu.tscn" id="2_0sug0"]
 [ext_resource type="PackedScene" uid="uid://cp3p3kqcjh0me" path="res://scenes/EndMenu/EndMenu.tscn" id="3_pr32b"]
 [ext_resource type="Texture2D" uid="uid://beg4vmqhsx6ak" path="res://icon.svg" id="4_6xymu"]
 [ext_resource type="Script" path="res://scenes/Game/Sprite2D.gd" id="5_4vekc"]
 [ext_resource type="Texture2D" uid="uid://ig0gka2usi3m" path="res://Blazia_bkgd.png" id="6_pi8i3"]
 
-[node name="BlaziaIntro" type="Node"]
-script = ExtResource("1_5b822")
+[node name="BlaziaDynamic" type="Node"]
+script = ExtResource("1_ugh7k")
 
 [node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="LabelSay" type="Label" parent="GUI"]
+offset_top = 475.0
+offset_right = 1280.0
+offset_bottom = 719.0
+text = "This text should change quickly"
+horizontal_alignment = 1
+
+[node name="LabelCharName" type="Label" parent="GUI"]
+offset_left = 1.0
+offset_top = 449.0
+offset_right = 191.0
+offset_bottom = 474.0
+text = "Blazia
+"
+horizontal_alignment = 1
+
+[node name="LabelContinue" type="Label" parent="GUI"]
+offset_left = 447.0
+offset_top = 694.0
+offset_right = 907.0
+offset_bottom = 719.0
+text = "continue text here..."
+horizontal_alignment = 1
 
 [node name="PauseMenu" parent="GUI" instance=ExtResource("2_0sug0")]
 unique_name_in_owner = true
@@ -21,6 +45,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="RemoveMe" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -30,37 +55,37 @@ offset_bottom = 355.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="RemoveMe"]
-layout_mode = 2
-text = "Hi, I'm Blazia
-I'm the mascot of Blazium"
-horizontal_alignment = 1
-
 [node name="HBoxContainer" type="HBoxContainer" parent="RemoveMe"]
+visible = false
 layout_mode = 2
 alignment = 1
 
 [node name="Main Menu" type="Button" parent="RemoveMe/HBoxContainer"]
+visible = false
 layout_mode = 2
 text = "Main Menu
 "
 
 [node name="PauseChecker" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1210, 71)
 texture = ExtResource("4_6xymu")
 script = ExtResource("5_4vekc")
 
 [node name="PauseChecker2" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(72, 75)
 texture = ExtResource("4_6xymu")
 script = ExtResource("5_4vekc")
 
 [node name="PauseChecker3" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(73, 644)
 texture = ExtResource("4_6xymu")
 script = ExtResource("5_4vekc")
 
 [node name="PauseChecker4" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(1202, 645)
 texture = ExtResource("4_6xymu")
 script = ExtResource("5_4vekc")

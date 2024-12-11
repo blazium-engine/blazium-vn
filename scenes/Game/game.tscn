@@ -67,9 +67,9 @@ text = "History
 layout_mode = 2
 text = "Frequestly Asked Questions"
 
-[node name="BlaziaDynamic" type="Button" parent="RemoveMe/HBoxContainer"]
+[node name="DynamicButton" type="Button" parent="RemoveMe/HBoxContainer"]
 layout_mode = 2
-text = "Dynamic Script"
+text = "Dynamic"
 
 [node name="PauseChecker" type="Sprite2D" parent="."]
 position = Vector2(72, 72)
@@ -92,4 +92,4 @@ texture = ExtResource("6_oueln")
 [connection signal="pressed" from="RemoveMe/HBoxContainer/BlaziaWho" to="." method="_on_blazia_who_pressed"]
 [connection signal="pressed" from="RemoveMe/HBoxContainer/History" to="." method="_on_history_pressed"]
 [connection signal="pressed" from="RemoveMe/HBoxContainer/FAQ" to="." method="_on_faq_pressed"]
-[connection signal="pressed" from="RemoveMe/HBoxContainer/BlaziaDynamic" to="." method="_on_blazia_dynamic_pressed"]
+[connection signal="pressed" from="RemoveMe/HBoxContainer/DynamicButton" to="." method="_on_dynamic_button_pressed"]
